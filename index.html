@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>פרסונה: רותי לוי | Stremio – אתגר UX ראשון</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0b1f; --ink:#1d1633; --muted:#5f5878; --line:#e9e4f6;
+  --violet:#7b5bf5; --violet-d:#5a3fd6; --violet-l:#f1edff;
+  --coral:#e8603d; --coral-l:#fff3ee; --green:#17a173; --green-l:#ebf9f3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Rubik',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{background:radial-gradient(900px 380px at 85% -20%,#3b2a8a 0%,transparent 60%),var(--bg);color:#fff;padding:40px 0 90px}
+.tag{display:inline-block;color:#cfc4ff;font-size:14px;letter-spacing:.2px}
+header h1{font-size:clamp(28px,4.4vw,42px);font-weight:800;line-height:1.2;margin:8px 0 14px}
+header h1 span{color:#b5a3ff}
+.team{display:flex;gap:8px;flex-wrap:wrap}
+.team div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:10px;font-size:15px;font-weight:500}
+
+main{margin-top:-60px;padding-bottom:50px}
+section{background:#fff;border-radius:20px;padding:30px;margin-bottom:22px;box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.num{width:38px;height:38px;border-radius:11px;background:var(--violet);color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px;flex-shrink:0}
+h2{font-size:23px;font-weight:800}
+
+/* about */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.flow div{background:var(--violet-l);border-radius:12px;padding:12px;text-align:center;font-size:15px}
+.flow b{display:block;font-size:20px;color:var(--violet-d)}
+
+/* ---------- persona card ---------- */
+.card{display:grid;grid-template-columns:1fr 300px;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.side{order:2;background:linear-gradient(170deg,#6a4ef0 0%,#4a2fc4 100%);color:#fff;padding:30px 26px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.avatar{width:150px;height:150px;border-radius:50%;overflow:hidden;border:5px solid rgba(255,255,255,.85);box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.side h3{font-size:28px;font-weight:800;margin-top:14px}
+.role{color:#ddd4ff;font-size:15px}
+.facts{width:100%;margin:18px 0;border-top:1px solid rgba(255,255,255,.2)}
+.facts div{display:flex;justify-content:space-between;padding:8px 2px;border-bottom:1px solid rgba(255,255,255,.2);font-size:15px}
+.facts span{color:#d6ccff}
+.quote{font-size:17px;font-weight:500;line-height:1.5;position:relative;padding-top:22px}
+.quote:before{content:"״";position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:54px;color:#ffb39f;line-height:1}
+
+.body{padding:26px 28px;display:grid;gap:18px;align-content:start;background:#fff}
+.blk h4{font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.blk h4:after{content:"";flex:1;height:1px;background:var(--line)}
+.bio p+p{margin-top:8px}
+.type{display:flex;align-items:flex-start;gap:12px;background:var(--violet-l);border-radius:12px;padding:12px 14px;margin-top:10px}
+.pill{background:var(--violet);color:#fff;font-weight:700;font-size:14px;padding:4px 12px;border-radius:999px;white-space:nowrap}
+.scale{display:flex;gap:4px;margin-top:8px}
+.scale span{font-size:12px;padding:2px 10px;border-radius:999px;background:#fff;color:var(--muted);border:1px solid var(--line)}
+.scale span.on{background:var(--violet);color:#fff;border-color:var(--violet)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{border-radius:14px;padding:14px 16px}
+.box h5{font-size:15px;font-weight:700;margin-bottom:6px}
+.box ul{padding-right:18px}
+.box li{margin-bottom:4px}
+.goals{background:var(--violet-l)} .goals h5{color:var(--violet-d)}
+.success{background:var(--green-l);border:1px solid #c3ebdb} .success h5{color:var(--green)}
+.success p{font-weight:600}
+.strong{background:#f6f7f9} .strong h5{color:#1f7a5c}
+.pain{background:var(--coral-l)} .pain h5{color:var(--coral)}
+.pain li{list-style:none;margin-right:-18px;display:flex;gap:8px;align-items:flex-start}
+.n{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;font-size:12px;margin-top:2px}
+.n.o{background:#fff;color:var(--coral);border:1px solid #f6c3b3}
+
+/* table */
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.lg{padding:4px 12px;border-radius:999px;font-size:13px;font-weight:700}
+.lg.c1{background:var(--coral-l);color:var(--coral)}.lg.c2{background:var(--green-l);color:var(--green)}.lg.c3{background:var(--violet-l);color:var(--violet-d)}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);font-size:15.5px}
+.tbl th{color:#fff;text-align:right;padding:12px 14px;width:33.33%}
+.tbl th.h1{background:var(--coral)}.tbl th.h2{background:var(--green)}.tbl th.h3{background:var(--violet-d)}
+.tbl td{padding:14px;vertical-align:top;border-top:3px solid #fff;border-left:3px solid #fff}
+.tbl td.c1{background:#fff7f3;font-weight:600}.tbl td.c2{background:#f3fbf8}.tbl td.c3{background:#f8f6ff}
+.tbl td.c1 .n{float:right;margin:0 0 4px 8px}
+.concept{display:inline-block;color:var(--violet-d);font-weight:700;margin-bottom:4px}
+.forher{display:block;margin-top:8px;padding-top:8px;border-top:1px dashed #d8cffa;font-size:15px}
+
+@media (max-width:860px){
+  .card{grid-template-columns:1fr}
+  .side{order:0}
+  .two,.flow{grid-template-columns:1fr 1fr}
+  section{padding:22px 16px}
+  .body{padding:20px 16px}
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl thead{display:none}
+  .tbl tr{margin-bottom:12px;border-radius:12px;overflow:hidden}
+  .tbl td{border:none}
+  .tbl td:before{content:attr(data-h);display:block;font-size:12px;color:var(--muted);font-weight:500;margin-bottom:2px}
+}
+@media (max-width:560px){.two,.flow{grid-template-columns:1fr}}
+
+/* accordions */
+details summary{list-style:none;cursor:pointer;user-select:none}
+details summary::-webkit-details-marker{display:none}
+.acc{border-radius:14px;transition:box-shadow .2s}
+.acc summary{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-weight:700;font-size:15.5px}
+.acc summary:after,.sol summary:after{content:"+";font-size:22px;font-weight:500;line-height:1;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.8);color:var(--ink);transition:transform .2s;flex-shrink:0}
+details[open] summary:after{transform:rotate(45deg)}
+.acc:hover{box-shadow:0 4px 14px rgba(60,40,140,.12)}
+.acc-in{padding:0 16px 14px}
+.acc-in ul{padding-right:18px}.acc-in li{margin-bottom:4px}
+.acc.bio{background:#f7f6fb}
+.acc.goals{background:var(--violet-l)}.acc.goals summary{color:var(--violet-d)}
+.acc.success{background:var(--green-l);border:1px solid #c3ebdb}.acc.success summary{color:var(--green)}.acc.success p{font-weight:600}
+.acc.strong{background:#f3f6f5}.acc.strong summary{color:#1f7a5c}
+.acc.pain{background:var(--coral-l)}.acc.pain summary{color:var(--coral)}
+.acc.pain li{list-style:none;margin-right:-18px;display:flex;gap:8px;align-items:flex-start}
+.acc-in p+p{margin-top:8px}
+.two{align-items:start}
+.toggle-all{white-space:nowrap;line-height:1.4;font-family:inherit;font-size:13px;font-weight:700;color:var(--violet-d);background:var(--violet-l);border:1px solid #d9cffd;border-radius:999px;padding:5px 14px;cursor:pointer}
+.sec-head .toggle-all{margin-right:auto}
+.hint{color:var(--muted);margin-bottom:14px}
+.sol{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden;background:#fff}
+.sol summary{display:flex;align-items:center;gap:12px;padding:16px 18px;background:#fff7f3;font-weight:700;font-size:17px}
+.sol summary .st{flex:1}
+.sol summary .n{width:30px;height:30px;font-size:15px;margin:0}
+.sol[open] summary{border-bottom:1px solid var(--line)}
+.sol-in{display:grid;grid-template-columns:1fr 1fr 1.15fr}
+.cell{padding:16px 18px}
+.cell h5{font-size:13px;font-weight:700;margin-bottom:6px;letter-spacing:.2px}
+.cell.c1{background:#fff7f3}.cell.c1 h5{color:var(--coral)}
+.cell.c2{background:#f3fbf8}.cell.c2 h5{color:var(--green)}
+.cell.c3{background:#f8f6ff}.cell.c3 h5{color:var(--violet-d)}
+@media (max-width:860px){.sol-in{grid-template-columns:1fr}}
+.sum{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pv{font-size:14px;font-weight:400;color:var(--muted)}
+details[open] .pv{display:none}
+.sol summary .st{display:flex;flex-direction:column;gap:2px}
+.acc summary{padding:16px 18px}
+
+/* ---- wide layout ---- */
+.wrap{max-width:1480px}
+.card{grid-template-columns:1fr!important}
+.side{order:0!important;flex-direction:row;align-items:center;text-align:right;gap:28px;padding:24px 32px}
+.avatar{width:120px;height:120px;flex-shrink:0}
+.who h3{margin-top:0}
+.side .facts{width:auto;margin:0;border-top:none;display:flex;gap:10px;flex-wrap:wrap}
+.side .facts div{flex-direction:column;justify-content:center;border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:8px 14px;background:rgba(255,255,255,.08)}
+.side .facts span{font-size:13px}
+.side .quote{flex:1;padding:0 26px 0 0;border-right:3px solid #ffb39f;text-align:right;min-width:220px}
+.side .quote:before{display:none}
+.body{grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.body .two{grid-template-columns:1fr;gap:12px}
+@media (max-width:1100px){.side{flex-wrap:wrap}.side .quote{flex-basis:100%;padding:12px 0 0;border-right:none;border-top:2px solid #ffb39f}}
+@media (max-width:860px){.body{grid-template-columns:1fr}.side{flex-direction:column;text-align:center}.side .facts{justify-content:center}}
+.acc.scn{background:#fff8e8;border:1px solid #f6e2b3}.acc.scn summary .t{color:#a86b00}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.chips span{background:#fff;border:1px solid #f0dca8;border-radius:999px;padding:3px 10px;font-size:13px}
+blockquote.quote{margin:0;display:flex;flex-direction:column;gap:4px;position:relative;padding-right:56px!important}
+blockquote.quote .qm{position:absolute;right:14px;top:-6px;font-size:46px;line-height:1;color:#ffb39f;font-family:Georgia,serif}
+blockquote.quote p{font-size:19px;font-weight:500;line-height:1.5}
+blockquote.quote cite{font-style:normal;font-size:14px;color:#ffd2c5;font-weight:700}
+@media (max-width:1100px){blockquote.quote{padding-right:48px!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="tag">קורס HCI · ד"ר הדר רונן · תשפ"ז · אתגר UX ראשון</span>
+    <h1>כרטיס פרסונה: <span>רותי לוי</span><br>משתמשת באפליקציית Stremio</h1>
+    <div class="team"><div>עמרי בן אהרון</div><div>איתי רהב</div></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <div class="sec-head"><div class="num">1</div><h2>האתר: Stremio</h2></div>
+    <p><b>Stremio</b> היא אפליקציה חינמית שמרכזת סרטים וסדרות במקום אחד, במחשב, בטלפון ובטלוויזיה החכמה. כשבוחרים פרק, האפליקציה מציגה רשימת מקורות מהתוספים שהותקנו (Add-ons), ומשם בוחרים מקור וכתוביות.</p>
+    <div class="flow">
+      <div><b>①</b>בוחרים סדרה</div>
+      <div><b>②</b>בוחרים פרק</div>
+      <div><b>③</b>בוחרים מקור מרשימה</div>
+      <div><b>④</b>מפעילים כתוביות וצופים</div>
+    </div>
+  </section>
+
+  <section id="persona">
+    <div class="sec-head"><div class="num">2</div><h2>כרטיס הפרסונה</h2><button class="toggle-all" data-target="persona">פתח הכל</button></div>
+
+    <div class="card">
+      <aside class="side">
+        <div class="avatar" aria-label="איור אווטאר של רותי">
+          <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="200" fill="#ffd9c9"/>
+            <circle cx="160" cy="40" r="26" fill="#ffc4ad"/>
+            <path d="M42 120 C30 60 70 30 100 30 C135 30 172 55 158 122 C150 140 140 140 136 128 L64 128 C60 140 48 140 42 120Z" fill="#c9c4cf"/>
+            <path d="M30 200 C34 160 62 146 100 146 C138 146 166 160 170 200Z" fill="#7b5bf5"/>
+            <path d="M84 148 L100 176 L116 148 Z" fill="#fff4ef"/>
+            <circle cx="100" cy="186" r="3" fill="#efeaff"/>
+            <rect x="88" y="124" width="24" height="26" rx="10" fill="#f2b99b"/>
+            <ellipse cx="100" cy="94" rx="40" ry="46" fill="#f8c9ad"/>
+            <ellipse cx="60" cy="98" rx="7" ry="10" fill="#f2b99b"/>
+            <ellipse cx="140" cy="98" rx="7" ry="10" fill="#f2b99b"/>
+            <circle cx="60" cy="112" r="3.5" fill="#ff7a59"/>
+            <circle cx="140" cy="112" r="3.5" fill="#ff7a59"/>
+            <path d="M58 92 C56 54 82 42 104 44 C128 46 146 62 142 92 C134 70 118 62 98 64 C80 66 66 74 58 92Z" fill="#dcd7e2"/>
+            <path d="M98 50 C112 54 128 62 136 78" stroke="#bdb6c6" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <g fill="none" stroke="#3a2f63" stroke-width="3">
+              <rect x="70" y="86" width="25" height="19" rx="8" fill="rgba(255,255,255,.35)"/>
+              <rect x="105" y="86" width="25" height="19" rx="8" fill="rgba(255,255,255,.35)"/>
+              <path d="M95 94 Q100 91 105 94"/>
+            </g>
+            <circle cx="83" cy="96" r="3" fill="#3a2f63"/>
+            <circle cx="117" cy="96" r="3" fill="#3a2f63"/>
+            <path d="M76 81 Q83 77 90 80 M110 80 Q117 77 124 81" stroke="#a49cae" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="74" cy="114" r="6" fill="#ff9f86" opacity=".45"/>
+            <circle cx="126" cy="114" r="6" fill="#ff9f86" opacity=".45"/>
+            <path d="M100 100 Q97 110 101 112" stroke="#d99a7c" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M88 122 Q100 131 112 122" stroke="#b5574a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="who"><h3>רותי לוי</h3><div class="role">מורה לתנ"ך בפנסיה</div></div>
+        <div class="facts">
+          <div><span>גיל</span><b>63</b></div>
+          <div><span>מכשיר</span><b>Android TV ושלט</b></div>
+          <div><span>רמה טכנולוגית</span><b>משתמשת מתחילה</b></div>
+        </div>
+        <blockquote class="quote"><span class="qm">❝</span><p>"אני רק רוצה להמשיך את הסדרה שלי בשישי בערב, בלי להתקשר לנכד שיעזור לי."</p><cite>— רותי</cite></blockquote>
+      </aside>
+
+      <div class="body">
+        <div class="blk">
+          <h4>רקע ותרחיש</h4>
+<div class="two">
+            <details class="acc bio">
+            <summary><span class="sum"><span class="t">📖 רקע</span><span class="pv">מורה בפנסיה, בטוחה בטלפון ופחות מול הטלוויזיה</span></span></summary>
+            <div class="acc-in">
+              <p>מתמצאת בטלפון (וואטסאפ, יוטיוב, פייסבוק), אבל מול הטלוויזיה החכמה והשלט מרגישה פחות בטוחה, ומרכיבה משקפי קריאה. הנכד נועם התקין לה את Stremio לפני שבועיים, ועכשיו הוא בצבא.</p>
+              <p><b>למה משתמשת מתחילה:</b> את המשימה, לצפות בסדרה עם כתוביות, היא מכירה היטב. אבל את הממשק של Stremio ומושגים כמו "תוסף" ו"מקור" היא לא מכירה, ולכן היא צריכה הדרכה, מעט אפשרויות ומשוב ברור.</p>
+            </div>
+          </details>
+            <details class="acc scn">
+              <summary><span class="sum"><span class="t">🎬 תרחיש</span><span class="pv">שישי, 21:00, לבד בסלון מול הטלוויזיה</span></span></summary>
+              <div class="acc-in"><p>יום שישי, 21:00. רותי יושבת לבד בסלון מול הטלוויזיה, עם השלט ביד, ורוצה להמשיך את הסדרה הקוריאנית מפרק 7 עם כתוביות בעברית.</p>
+              <div class="chips"><span>🕘 שישי בערב</span><span>🛋️ סלון</span><span>📺 Android TV ושלט</span><span>👤 לבד</span></div></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="blk">
+          <h4>צרכים ורצונות</h4>
+          <div class="two">
+            <details class="acc goals">
+              <summary><span class="sum"><span class="t">🎯 יעדים</span><span class="pv">להמשיך מהפרק שבו עצרה, עם כתוביות בעברית</span></span></summary>
+              <div class="acc-in"><ul>
+                <li>להמשיך לצפות מהפרק שבו עצרה</li>
+                <li>כתוביות בעברית שקל לקרוא מהספה</li>
+                <li>להסתדר לבד, בלי לחכות לעזרה</li>
+              </ul></div>
+            </details>
+            <details class="acc success">
+              <summary><span class="sum"><span class="t">✅ מה תיחשב הצלחה?</span><span class="pv">הפרק מתנגן תוך 3 דקות, בלי עזרה</span></span></summary>
+              <div class="acc-in"><p>תוך 3 דקות, בלי להתקשר לנועם, הפרק מתנגן עם כתוביות עבריות שקל לקרוא.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="blk">
+          <h4>חוזקות וקשיים</h4>
+          <div class="two">
+            <details class="acc strong">
+              <summary><span class="sum"><span class="t">💪 חוזקות</span><span class="pv">מוטיבציה גבוהה, סבלנות ושגרה קבועה</span></span></summary>
+              <div class="acc-in"><ul>
+                <li>מוטיבציה גבוהה, כי זה הטקס הקבוע שלה</li>
+                <li>סבלנית ויודעת בדיוק מה היא רוצה לראות</li>
+                <li>מכירה מיוטיוב את "להמשיך מאיפה שהפסקתי"</li>
+              </ul></div>
+            </details>
+            <details class="acc pain">
+              <summary><span class="sum"><span class="t">⚡ קשיים ונקודות כאב</span><span class="pv">מקורות טכניים, כתוביות, ניווט בשלט</span></span></summary>
+              <div class="acc-in"><ul>
+                <li><span class="n">1</span><span>רשימת המקורות מלאה במונחים שהיא לא מבינה, כמו <span dir="ltr">1080p · HEVC</span></span></li>
+                <li><span class="n">2</span><span>בכל פרק היא צריכה לחפש עברית מחדש בין עשרות שפות</span></li>
+                <li><span class="n">3</span><span>קשה לה לנווט עם השלט, והיא פוחדת "לקלקל משהו"</span></li>
+                <li><span class="n o">•</span><span>הטקסט קטן מדי בשבילה מהספה</span></li>
+              </ul></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solutions">
+    <div class="sec-head"><div class="num">3</div><h2>מפרסונה לפתרונות</h2><button class="toggle-all" data-target="solutions">פתח הכל</button></div>
+    <p class="hint">לחצו על כל קושי כדי לראות את הפתרון המוצע ואת הנימוק.</p>
+    <details class="sol">
+      <summary><span class="n">1</span><span class="st">רשימת מקורות מלאה במונחים טכניים שהיא לא מבינה<span class="pv">פתרון: כפתור "נגן" אחד · מושג: FITT</span></span></summary>
+      <div class="sol-in">
+        <div class="cell c1"><h5>מה מאפיין אותה או מקשה עליה?</h5><p>כשרותי בוחרת פרק, היא מקבלת רשימה ארוכה של מקורות עם מונחים כמו 1080p, HEVC ו-4.2GB, ולא יודעת על מה ללחוץ.</p></div>
+        <div class="cell c2"><h5>מה תציעו באפליקציה?</h5><p>כפתור גדול אחד, "נגן", שבוחר אוטומטית את המקור הכי טוב, עם שפה פשוטה ("איכות רגילה" / "איכות גבוהה"). הרשימה המלאה מוסתרת תחת "אפשרויות מתקדמות".</p></div>
+        <div class="cell c3"><h5>למה זה מתאים? קשרו למושג שלמדנו</h5><p><span class="concept">FITT: התאמה בין משתמש, משימה וטכנולוגיה</span><br>שפה מסובכת מדי היא חוסר התאמה. הפתרון מתאים את הטכנולוגיה למשתמשת מתחילה, ומצמצם את המאמץ שנדרש כדי לבצע את המשימה (performance).</p><p class="forher"><b>למה דווקא לרותי:</b> בלחיצה אחת הפרק מתחיל, בלי שתצטרך להבין מה זה מקור.</p></div>
+      </div>
+    </details>
+    <details class="sol">
+      <summary><span class="n">2</span><span class="st">בכל פרק היא צריכה לחפש עברית מחדש בין עשרות שפות<span class="pv">פתרון: העברית נשמרת לכל הסדרה · מושג: מודל מנטלי</span></span></summary>
+      <div class="sol-in">
+        <div class="cell c1"><h5>מה מאפיין אותה או מקשה עליה?</h5><p>המערכת לא זוכרת את בחירת השפה, ולכן בכל פרק רותי גוללת עם השלט בתפריט כתוביות ארוך עד שהיא מוצאת עברית.</p></div>
+        <div class="cell c2"><h5>מה תציעו באפליקציה?</h5><p>העברית נשמרת לכל הסדרה ומופעלת אוטומטית, ומוצמדת לראש תפריט הכתוביות.</p></div>
+        <div class="cell c3"><h5>למה זה מתאים? קשרו למושג שלמדנו</h5><p><span class="concept">מודל מנטלי</span><br>רותי חושבת שהבחירה שלה נשמרת, כמו בטלוויזיה רגילה, אבל המערכת מתחילה כל מקור מאפס. ההצעה מיישרת את המערכת לאיך שהמשתמשת חושבת שהיא מתנהגת.</p><p class="forher"><b>למה דווקא לרותי:</b> היא לא צריכה לגלול עם השלט בין עשרות שפות בכל שישי.</p></div>
+      </div>
+    </details>
+    <details class="sol">
+      <summary><span class="n">3</span><span class="st">קשה לה לנווט עם השלט, והיא פוחדת לטעות<span class="pv">פתרון: הדרכה, מסגרת בולטת וכפתור "חזרה" · מושג: הדרכה ופידבק</span></span></summary>
+      <div class="sol-in">
+        <div class="cell c1"><h5>מה מאפיין אותה או מקשה עליה?</h5><p>רותי לא תמיד רואה על איזה כפתור הסמן נמצא, ומפחדת ללחוץ על משהו ש"יקלקל" את האפליקציה כשאין מי שיעזור.</p></div>
+        <div class="cell c2"><h5>מה תציעו באפליקציה?</h5><p>הדרכה קצרה על כפתורי השלט בכניסה הראשונה. כרטיס "המשך צפייה" ענק עם מסגרת בולטת סביב הכפתור הנבחר. הודעות בעברית פשוטה, וכפתור "חזרה" שתמיד עובד.</p></div>
+        <div class="cell c3"><h5>למה זה מתאים? קשרו למושג שלמדנו</h5><p><span class="concept">הדרכה למשתמש חדש ופידבק אינפורמטיבי</span><br>אלה כלים שהמצגת מציגה למשתמשים מתחילים. ההדרכה בונה ביטחון, והפידבק מראה לה בכל רגע מה קרה ואיפה היא נמצאת.</p><p class="forher"><b>למה דווקא לרותי:</b> גם כשהיא לבד, היא יודעת שאפשר לחזור אחורה ושלא תקלקל כלום.</p></div>
+      </div>
+    </details>
+  </section>
+
+</main>
+<script>
+document.querySelectorAll('.toggle-all').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var root=document.getElementById(btn.dataset.target);
+    var ds=root.querySelectorAll('details');
+    var open=btn.textContent.trim()==='פתח הכל';
+    ds.forEach(function(d){d.open=open});
+    btn.textContent=open?'סגור הכל':'פתח הכל';
+  });
+});
+</script>
+</body>
+</html>
